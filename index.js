@@ -38,8 +38,19 @@ function getCpuInput () {
     }
 }
 
-function compareChoices(cpuChoice, userInput) {
-
+function compareChoices(cpuInput, userInput) {
+    switch (cpuInput, userInput) {
+        case cpuInput === userInput:
+            return "tie";
+        case cpuInput === "rock" && userInput === "scissors":
+            return "lose";
+        case cpuInput === "paper" && userInput === "rock":
+            return "lose";
+        case cpuInput === "scissors" && userInput === "paper":
+            return "loase";
+        default:
+            return "win";
+    }
 }
 
 userName = prompt("What is your name")

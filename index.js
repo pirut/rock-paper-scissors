@@ -7,8 +7,6 @@ Req's:
     - Detect Victory condition
 */
 
-let userName = "";
-
 function getUserInput() {
     let userInput = prompt(`What do you play ${userName}?`)
     if (userInput === null || undefined || "") {
@@ -20,6 +18,7 @@ function getUserInput() {
             return userInput;
         }
         else {
+            alert("You can only play Rock, Paper, or Scissors.");
             return getUserInput();
         }
     }
@@ -39,15 +38,15 @@ function getCpuInput () {
 }
 
 function compareChoices(cpuInput, userInput) {
-    switch (cpuInput, userInput) {
-        case cpuInput === userInput:
+    switch (true) {
+        case (cpuInput === userInput):
             return "tie";
-        case cpuInput === "rock" && userInput === "scissors":
+        case (cpuInput === "rock" && userInput === "scissors"):
             return "lose";
-        case cpuInput === "paper" && userInput === "rock":
+        case (cpuInput === "paper" && userInput === "rock"):
             return "lose";
-        case cpuInput === "scissors" && userInput === "paper":
-            return "loase";
+        case (cpuInput === "scissors" && userInput === "paper"):
+            return "lose";
         default:
             return "win";
     }
@@ -58,19 +57,24 @@ function runGame() {
     let playerScore = 0;
 
     while (playerScore < 5 && cpuScore < 5) {
-        let result = compareChoices(getUserInput(), getCpuInput());
+        const userInput = getUserInput();
+        const cpuInput = getCpuInput()
+        let result = compareChoices(cpuInput, userInput);
 
         switch (result) {
-            case result === "tie":
+            case "tie":
                 alert("We Tied.");
                 continue;
-            case result === "lose":
-                alert("I Lost That Round.");
+            case "lose":
                 cpuScore++;
+                alert(`I Won That Round. I have ${cpuScore} points, and you have ${playerScore} Points.`);
                 continue;
-            case result === "win":
-                alert(`You Win That Round ${userName}.`);
+            case "win":
                 playerScore++;
+                alert(`You Win That Round ${userName}. I have ${cpuScore} points, and you have ${playerScore} Points.`);
+                continue;
+            default:
+                alert("There was a glitch. Let's try again.");
                 continue;
         }
     }
@@ -83,9 +87,9 @@ function runGame() {
     }
 }
 
-userName = prompt("What is your name")
-alert(`I chalance you to a game of Rock Paper Scissors ${userName}.`);
+let userName = prompt("What is your name")
+alert(`I challenge you to a game of Rock Paper Scissors ${userName}.`);
 alert("TO THE DEATH!!");
 alert("Well not actually to the death, but it is for realzies.");
-
-alert(getUserInput())
+alert("First to 5 wins.");
+runGame();

@@ -10,7 +10,6 @@ Req's:
 let userName = "";
 
 function getUserInput() {
-    userName = prompt("What is your name")
     let userInput = prompt(`What do you play ${userName}?`)
     if (userInput === null || undefined || "") {
         return getUserInput();
@@ -26,8 +25,23 @@ function getUserInput() {
     }
 }
 
+function getCpuInput () {
+    let randomInt = Math.floor(Math.random() * 3);
+
+    switch (randomInt) {
+        case 0:
+            return "rock";
+        case 1:
+            return "paper";
+        case 2:
+            return "scissors";
+    }
+}
+
 function compareChoices(cpuChoice, userInput) {
 
 }
+
+userName = prompt("What is your name")
 
 alert(getUserInput())

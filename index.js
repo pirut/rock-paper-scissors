@@ -7,13 +7,18 @@ Req's:
     - Detect Victory condition
 */
 
-// const rockBtn = document.querySelector("#rock");
-// const paperBtn = document.querySelector("#paper");
-// const scissorsBtn = document.querySelector("#scissors");
+let cpuScore = 0;
+let playerScore = 0;
 
-const buttons = document.querySelector("choices");
+const buttons = document.querySelector(".choices");
+buttons.addEventListener("click", (event) => {
+    getUserInput(event.target);
+});
 
-function getUserInput() {}
+function getUserInput(button) {
+    // alert(button.id);
+    runGame(button.id);
+}
 
 function getCpuInput() {
     let randomInt = Math.floor(Math.random() * 3);
@@ -43,36 +48,29 @@ function compareChoices(cpuInput, userInput) {
     }
 }
 
-function runGame() {
-    let cpuScore = 0;
-    let playerScore = 0;
+function runGame(userInput) {
+    let result = compareChoices(getCpuInput(), userInput);
 
-    while (playerScore < 5 && cpuScore < 5) {
-        const userInput = getUserInput();
-        const cpuInput = getCpuInput();
-        let result = compareChoices(cpuInput, userInput);
-
-        switch (result) {
-            case "tie":
-                alert("We Tied.");
-                continue;
-            case "lose":
-                cpuScore++;
-                alert(`I Won That Round. I have ${cpuScore} points, and you have ${playerScore} Points.`);
-                continue;
-            case "win":
-                playerScore++;
-                alert(`You Win That Round ${userName}. I have ${cpuScore} points, and you have ${playerScore} Points.`);
-                continue;
-            default:
-                alert("There was a glitch. Let's try again.");
-                continue;
-        }
+    switch (result) {
+        case "tie":
+            alert("We Tied.");
+            break;
+        case "lose":
+            cpuScore++;
+            alert(`Cpu Win`);
+            break;
+        case "win":
+            playerScore++;
+            alert(`You win`);
+            break;
+        default:
+            alert("There was a glitch. Let's try again.");
+            break;
     }
 
     if (cpuScore === 5) {
         alert("You lose Ha!");
-    } else {
+    } else if (playerScore === 5) {
         alert("You got lucky 😢");
     }
 }

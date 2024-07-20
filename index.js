@@ -7,24 +7,13 @@ Req's:
     - Detect Victory condition
 */
 
-function getUserInput() {
-    let userInput = prompt(`What do you play ${userName}?`);
-    if (userInput === null || undefined || "") {
-        return getUserInput();
-    } else {
-        userInput = userInput.toLowerCase();
-        if (
-            userInput === "rock" ||
-            userInput === "paper" ||
-            userInput === "scissors"
-        ) {
-            return userInput;
-        } else {
-            alert("You can only play Rock, Paper, or Scissors.");
-            return getUserInput();
-        }
-    }
-}
+// const rockBtn = document.querySelector("#rock");
+// const paperBtn = document.querySelector("#paper");
+// const scissorsBtn = document.querySelector("#scissors");
+
+const buttons = document.querySelector("choices");
+
+function getUserInput() {}
 
 function getCpuInput() {
     let randomInt = Math.floor(Math.random() * 3);
@@ -69,15 +58,11 @@ function runGame() {
                 continue;
             case "lose":
                 cpuScore++;
-                alert(
-                    `I Won That Round. I have ${cpuScore} points, and you have ${playerScore} Points.`
-                );
+                alert(`I Won That Round. I have ${cpuScore} points, and you have ${playerScore} Points.`);
                 continue;
             case "win":
                 playerScore++;
-                alert(
-                    `You Win That Round ${userName}. I have ${cpuScore} points, and you have ${playerScore} Points.`
-                );
+                alert(`You Win That Round ${userName}. I have ${cpuScore} points, and you have ${playerScore} Points.`);
                 continue;
             default:
                 alert("There was a glitch. Let's try again.");
@@ -92,9 +77,9 @@ function runGame() {
     }
 }
 
-let userName = prompt("What is your name");
+/* let userName = prompt("What is your name");
 alert(`I challenge you to a game of Rock Paper Scissors ${userName}.`);
 alert("TO THE DEATH!!");
 alert("Well not actually to the death, but it is for realzies.");
-alert("First to 5 wins.");
-runGame();
+alert("First to 5 wins."); 
+runGame(); */

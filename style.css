@@ -1,0 +1,118 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    align-self: stretch;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.headerText {
+    font-family: inherit;
+    font-size: 72px;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.choiceBtn {
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 16px;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.choiceBtn:focus {
+    box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.choiceBtn:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.choiceBtn:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.scoreBlock,
+.score {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.score {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+}
+
+.scoreHead,
+.scoreNum {
+    margin: 0px;
+    padding: 0px;
+}
+
+.credits {
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: flex-end;
+    margin-top: auto;
+    min-width: 100vw;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-right: 16px;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-family: inherit;
+    font-size: medium;
+}
+
+.links a:hover {
+    color: blue;
+}
+
+.creditsText {
+    font-family: inherit;
+    margin: 16px;
+}

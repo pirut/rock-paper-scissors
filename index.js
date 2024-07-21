@@ -10,6 +10,11 @@ Req's:
 let cpuScore = 0;
 let playerScore = 0;
 
+const cpuScoreElement = document.querySelector("#cpuScore");
+const playerScoreElement = document.querySelector("#playerScore");
+
+const talkBack = document.querySelector(".talkBack");
+
 const buttons = document.querySelector(".choices");
 buttons.addEventListener("click", (event) => {
     getUserInput(event.target);
@@ -53,25 +58,36 @@ function runGame(userInput) {
 
     switch (result) {
         case "tie":
-            alert("We Tied.");
+            talkBack.textContent = "We Tied.";
             break;
         case "lose":
             cpuScore++;
-            alert(`Cpu Win`);
+            talkBack.textContent = "CPU Wins";
             break;
         case "win":
             playerScore++;
-            alert(`You win`);
+            talkBack.textContent = "You Win";
             break;
         default:
-            alert("There was a glitch. Let's try again.");
+            talkBack.textContent = "There was a glitch. Let's try again.";
             break;
     }
 
+    cpuScoreElement.textContent = String(cpuScore);
+    playerScoreElement.textContent = String(playerScore);
+
     if (cpuScore === 5) {
-        alert("You lose Ha!");
+        talkBack.textContent = "You lose Ha! Let's play again!";
+        playerScore = 0;
+        cpuScore = 0;
+        cpuScoreElement.textContent = String(cpuScore);
+        playerScoreElement.textContent = String(playerScore);
     } else if (playerScore === 5) {
-        alert("You got lucky 😢");
+        talkBack.textContent = "You got lucky 😢. Let's play again";
+        playerScore = 0;
+        cpuScore = 0;
+        cpuScoreElement.textContent = String(cpuScore);
+        playerScoreElement.textContent = String(playerScore);
     }
 }
 

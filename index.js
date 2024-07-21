@@ -90,10 +90,3 @@ function runGame(userInput) {
         playerScoreElement.textContent = String(playerScore);
     }
 }
-
-/* let userName = prompt("What is your name");
-alert(`I challenge you to a game of Rock Paper Scissors ${userName}.`);
-alert("TO THE DEATH!!");
-alert("Well not actually to the death, but it is for realzies.");
-alert("First to 5 wins."); 
-runGame(); */
